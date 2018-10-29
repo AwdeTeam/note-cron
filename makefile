@@ -1,6 +1,10 @@
-run:
-	export FLASK_APP=./notecron.py
+run: env
 	flask run
+
+env:
+	export FLASK_APP=./notecron.py
+
+deenv:
 	env -u FLASK_APP
 
-.PHONY: run
+.PHONY: run, env, deenv
