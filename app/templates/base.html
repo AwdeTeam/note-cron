@@ -1,0 +1,24 @@
+<!-- Licensed under GPL-3.0: https://www.gnu.org/licenses/gpl-3.0.en.html -->
+
+<html>
+	<head>
+		{% if title %}
+		<title>{{ title }} - test</title>
+		{% else %}
+		<title>Welcome</title>
+		{% endif %}
+	</head>
+	<body>
+		<div>
+			Microblog:
+			<a href="{{ url_for('index') }}">Home</a>
+			{% if current_user.is_anonymous %}
+				<a href="{{ url_for('login') }}">Login</a>
+			{% else %}
+				<a href="{{ url_for('logout') }}">Logout</a>
+			{% endif %}
+		</div>
+		<hr>
+		{% block content %}{% endblock %}
+	</body>
+</html>
